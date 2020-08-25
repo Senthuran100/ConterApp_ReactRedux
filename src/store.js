@@ -2,27 +2,27 @@ import * as redux from 'redux';
 
 // Actions
 export const COUNTER_INCREMENT = 'counter/increment';
-export const COUNTER_DECREMENT  = 'counter/decrement';
+export const COUNTER_DECREMENT = 'counter/decrement';
 
-const countinitialState ={
-    count:0
+const countinitialState = {
+    count: 0
 }
-const countreducer = (state=countinitialState,action) =>{
-    switch(action.type){
+const countreducer = (state = countinitialState, action) => {
+    switch (action.type) {
         case COUNTER_INCREMENT: {
-            return {...state,count:state.count+1};
+            return { ...state, count: state.count + 1 };
         }
         case COUNTER_DECREMENT: {
-            return {...state,count:state.count-1};
+            return { ...state, count: state.count - 1 };
         }
-        default:{
+        default: {
             return state;
         }
     }
 }
 
-const testreducer = (state=[],action) =>{
-    switch(action.type){
+const testreducer = (state = [], action) => {
+    switch (action.type) {
         case 'push': {
             const data = [...state]
             data.push(action.value)
@@ -33,16 +33,16 @@ const testreducer = (state=[],action) =>{
             data.pop(action.value)
             return [...data];
         }
-        default:{
+        default: {
             return state;
         }
     }
 }
 
-const rootReducer= (state={},action) => {
+const rootReducer = (state = {}, action) => {
     return {
-        counter :countreducer(state.counter,action),
-        tester : testreducer(state.tester,action)
+        counter: countreducer(state.counter, action),
+        tester: testreducer(state.tester, action)
     }
 }
 
