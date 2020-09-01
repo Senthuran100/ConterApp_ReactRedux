@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import store, { COUNTER_DECREMENT, COUNTER_INCREMENT } from './store';
 import { Provider } from 'react-redux';
 import Hello from './Hello';
+import Search from './Search';
 import './App.scss';
 
 export default class App extends Component {
@@ -47,6 +48,7 @@ export default class App extends Component {
           <button onClick={this.pop}>Pop</button>
 
         </div>
+        <Search />
       </Provider>
     )
   }
